@@ -15,3 +15,16 @@ $objs = ["protobuf.o", "defs.o", "storage.o", "message.o",
          "wrap_memcpy.o"]
 
 create_makefile("google/protobuf_c")
+
+# If we're in the original repo, generate the built-in protos.
+puts 'HEY HEY'
+puts Dir.pwd
+puts File.exist?('../../../Rakefile')
+puts File.expand_path('../../..')
+if File.exist?('../../../Rakefile')
+  Dir.chdir '../../..' do
+    puts 'Raking'
+    puts Dir.pwd
+    system 'rake', 'genproto'
+  end
+end

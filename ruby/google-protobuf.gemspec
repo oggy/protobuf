@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.email       = "protobuf@googlegroups.com"
   s.require_paths = ["lib"]
   s.files       = Dir.glob('lib/**/*.rb')
+  s.extensions  = ['genproto.rb']
   if RUBY_PLATFORM == "java"
     s.platform  = "java"
     s.files     += ["lib/google/protobuf_java.jar"]
